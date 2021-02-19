@@ -1,16 +1,10 @@
 import "./styles.css";
 import React, { useState } from "react";
+import { useInput } from "./hooks/useInput";
 
-const useInput = (initialValue) => {
-  const [value, setValue] = useState(initialValue);
-  const onChange = (event) => {
-    console.log(event.target);
-  };
-
-  return { value, onChange };
-};
 export default function App() {
-  const name = useInput("Mr.");
+  const maxLen = (value) => !value.includes("@");
+  const name = useInput("Mr.", maxLen);
   return (
     <div className="App">
       <h1>hellow</h1>
